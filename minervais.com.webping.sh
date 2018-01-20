@@ -1,7 +1,7 @@
 #!/bin/bash
 #minervais.com.webping.sh
 
-timeout=2 #lower value to increase speed (and false negatives!)
+timeout=1 #increase value to yield fewer false negatives (but decrease speed!)
 
 #check dependencies
 if ! command -v curl >/dev/null 2>&1 && ! command -v wget >/dev/null 2>&1; then
@@ -21,7 +21,7 @@ do
 				echo "https://$t:$p"
 			fi
 		elif command -v wget >/dev/null 2>&1; then
-			if wget --quiet -S --no-check-certificate --spider --timeout=$timeout -O /dev/null --tries 1 --max-redirect=0 https://$t:$p|grep HTTP\/>/dev/null 2>&1; then
+			if wget --quiet -S --no-check-certificate --spider --timeout=$timeout -O /dev/null --tries 1 --max-redirect=0 https://$t:$p 2>&1|grep HTTP\/>/dev/null 2>&1; then
 				echo "https://$t:$p"
 			fi
 		fi
@@ -30,11 +30,11 @@ do
 	#http
 	for p in 80 8000 8008 8080 8081; do
 		if command -v curl >/dev/null 2>&1; then
-			if curl -Iis -m $timeout http://$t:$p|grep ^HTTP\/>/dev/null; then
+			if curl -Iis -m $timeout http://$t:$p|grep ^HTTP\/>/dev/null 2>&1; then
 				echo "http://$t:$p"
 			fi
 		elif command -v wget >/dev/null 2>&1; then
-			if wget --quiet -S --spider --timeout=$timeout -O /dev/null --tries 1 --max-redirect=0 http://$t:$p|grep HTTP\/>/dev/null; then
+			if wget --quiet -S --spider --timeout=$timeout -O /dev/null --tries 1 --max-redirect=0 http://$t:$p 2>&1|grep HTTP\/>/dev/null 2>&1; then
 				echo "http://$t:$p"
 			fi
 		fi
