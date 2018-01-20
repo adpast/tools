@@ -1,7 +1,7 @@
 #!/bin/bash
 #minervais.com.webping.sh
 
-timeout=2
+timeout=2 #lower value to increase speed (and false negatives!)
 
 #check dependencies
 if ! command -v curl >/dev/null 2>&1 && ! command -v wget >/dev/null 2>&1; then
@@ -28,7 +28,7 @@ do
 	done
 
 	#http
-	for p in 80 8000 8008 8080; do
+	for p in 80 8000 8008 8080 8081; do
 		if command -v curl >/dev/null 2>&1; then
 			if curl -Iis -m $timeout http://$t:$p|grep ^HTTP\/>/dev/null; then
 				echo "http://$t:$p"
