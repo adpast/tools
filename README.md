@@ -2,7 +2,7 @@
 Minimalist script that takes a file with IPs or FQDNs and displays HTTP(S) URLs identified on those targets. Script should run on default OSX and Ubuntu environments.
 
 # requirements
-Bash with `curl` or `wget` command.
+`bash` with either `curl` or `wget` command.
 
 # example
 In this example, we assume the user has previously brute-forced subdomains using tools such as dnsmap or SubBrute. Finding active HTTP(S) URLs on brute-forced subdomains is helpful when the rules of engagement allow probing any subdomain within a given parent domain. Think Yahoo's bug bounty program (`*.yahoo.com` `*.flickr.com`), for instance.
