@@ -32,7 +32,6 @@ curl -x $p -ks -A "" --connect-timeout $t -d $body --url $url|grep -oE 'href="([
 #subsequent "Next" reqs
 for((s=80;s<=230;s=$((s+50)))); do
 	body="q=$q&s=$s&nextParams=&v=l&o=json&dc=$((s+1))&api=%2Fd.js"
-	(>&2 echo "[*] $body")
 	sleep $[($RANDOM%5)+1]
 	curl -x $p -A "" -ks --connect-timeout $t -d $body --url $url|grep -oE 'href="([^"#]+)"'|grep -i $1|cut -d'"' -f2|grep -E ^'http:\/\/|https:\/\/'|sort|uniq
 done
