@@ -1,10 +1,42 @@
-# minervais.com.webping.sh
+## minervais.com.ddgpdfs.sh
+Get URLs of public-facing PDFs on a given domain. Uses DuckDuckGo, no API key required.
+
+### requirements
+`bash` with `curl` and `tor`.
+
+### example
+Get PDF URLs
+```
+$ ./minervais.com.ddgpdfs.sh acme.com
+[*] starting tor...
+[*] connecting from 5.187.21.43
+https://acme.com/doc.pdf
+https://acme.com/doc2.pdf
+```
+_[...snip...]_
+
+Save PDF URLs to file, excluding debug messages
+```
+$ ./minervais.com.ddgpdfs.sh acme.com>urls.txt
+[*] starting tor...
+[*] connecting from 178.239.176.73
+```
+_[...snip...]_
+
+```
+$ head -n2 urls.txt
+https://acme.com/doc.pdf
+https://acme.com/doc2.pdf
+```
+_[...snip...]_
+
+## minervais.com.webping.sh
 Minimalist script that takes a file with IPs or FQDNs and displays HTTP(S) URLs identified on those targets. Script should run on default OSX and Ubuntu environments.
 
-# requirements
+### requirements
 `bash` with either `curl` or `wget` command.
 
-# example
+### example
 In this example, we assume the user has previously brute-forced subdomains using tools such as dnsmap or SubBrute. Finding active HTTP(S) URLs on brute-forced subdomains is helpful when the rules of engagement allow probing any subdomain within a given parent domain. Think Yahoo's bug bounty program (`*.yahoo.com` `*.flickr.com`), for instance.
 ```
 $ ./minervais.com.webping.sh subs.txt
@@ -18,28 +50,5 @@ https://ads.yahoo.com:443
 http://ads.yahoo.com:80
 http://ads.yahoo.com:8081
 https://adserver.yahoo.com:443
-http://adserver.yahoo.com:80
-https://adventure.yahoo.com:443
-http://adventure.yahoo.com:80
-https://advertising.yahoo.com:443
-http://advertising.yahoo.com:80
-http://advice.yahoo.com:80
-http://affiliates.yahoo.com:80
-http://agenda.yahoo.com:80
-https://aim.yahoo.com:443
-http://aim.yahoo.com:80
-https://alert.yahoo.com:443
-http://alert.yahoo.com:80
-https://alerts.yahoo.com:443
-http://alerts.yahoo.com:80
-https://alliance.yahoo.com:443
-http://alliance.yahoo.com:80
-https://amarillas.yahoo.com:443
-http://amarillas.yahoo.com:80
-http://amr.yahoo.com:80
-https://analytics.yahoo.com:443
-http://analytics.yahoo.com:80
-https://anc.yahoo.com:443
-http://anc.yahoo.com:80
 ```
 _[...snip...]_
