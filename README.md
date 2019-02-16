@@ -1,3 +1,12 @@
+## minervais.com.forceusercert.py
+Patch APK so it can be MITM'd on Android >=7. It essentially automates [this](https://github.com/pagvac/how-tos/blob/master/android-7-apps-mitm.md).
+```
+$ minervais.com.forceusercert.py base.apk 
+all good! now just adb install base-patched.apk
+$ adb install base-patched.apk
+Success
+```
+
 ## minervais.com.ddgpdfs.sh
 Get URLs of public-facing PDFs on a given domain. Uses DuckDuckGo, no API key required.
 
