@@ -6,7 +6,7 @@ import BaseHTTPServer, SimpleHTTPServer, ssl, sys, os, socket, errno
 
 p = 8443
 webroot = "www"
-keyncert = "https-server.pem"
+keyncert = "minervais.com.httpsserver.pem"
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
