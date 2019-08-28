@@ -1,4 +1,4 @@
-#https-server.py v0.1
+#minervais.com.httpsserver.py v0.1
 #this script is INSECURE, use at your own risk!
 #tested on Win10, RHEL7, and macOS 10.14
 #ref: https://blog.anvileight.com/posts/simple-python-http-server/#python-2-x-1
